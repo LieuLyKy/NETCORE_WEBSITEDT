@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WEBBANTBDTK.Models.Category>
+@{
+    ViewBag.Title = "_MnTraiProduct";
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="filter-content collapse show" id="collapse_2">
+        @foreach (var item in Model)
+        {
+            if (ViewBag.CatID == item.CatId)
+            {
+                <li class="active"><a href="/danh-muc-san-pham/@item.Alias-@(item.CatId)"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>@item.Title</a></li>
+            }
+            else
+            {
+                <li><a href="/danh-muc-san-pham/@item.Alias-@(item.CatId)">@item.Title</a></li>
+            }
+
+        }
+    </div>
+}

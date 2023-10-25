@@ -1,0 +1,248 @@
+﻿<div class="side-nav">
+    <div class="side-nav-inner">
+        <ul class="side-nav-menu scrollable">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-dashboard"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                        <span class="arrow">
+                            <i class="arrow-icon"></i>
+                        </span>
+                    </a>
+
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="/login.html?returnUrl=/Admin/Home" class="dropdown-toggle" @*asp-area="Admin" asp-controller="Home" asp-action="Index"*@>
+                        <span class="icon-holder">
+                            <i class="anticon anticon-dashboard"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                        <span class="arrow">
+                            <i class="arrow-icon"></i>
+                        </span>
+                    </a>
+
+                </li>
+            }
+            
+           @* <li class="nav-item">
+                <a class="dropdown-toggle" asp-action="Index" asp-controller="OrdersAd" asp-area="Admin">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-file"></i>
+                    </span>
+                    <span class="title">Quản lý đơn hàng</span>
+                </a>
+            </li>*@
+
+            
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" asp-action="Index" asp-controller="OrdersAd" asp-area="Admin">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý đơn hàng</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="/login.html?returnUrl=/Admin/OrdersAd" class="dropdown-toggle" @*asp-action="Index" asp-controller="OrdersAd" asp-area="Admin"*@>
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý đơn hàng</span>
+                    </a>
+                </li>
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="ProductsAd" asp-action="Index">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý sản phẩm</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="/login.html?returnUrl=/Admin/ProductsAd">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý sản phẩm</span>
+                    </a>
+                </li>
+            }
+
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="CustomersAd" asp-action="Index">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý khách hàng</span>
+                    </a>
+                </li>
+
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="/login.html?returnUrl=/Admin/CustomersAd">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý khách hàng</span>
+                    </a>
+                </li>
+            }
+          
+
+
+            
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-table"></i>
+                    </span>
+                    <span class="title">Quản lý hệ thống</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-area="Admin" asp-controller="AccountsAdmin" asp-action="Index">Quản lý tài khoản</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/login.html?returnUrl=/Admin/AccountsAdmin"@* asp-area="Admin" asp-controller="AccountsAdmin" asp-action="Index"*@>Quản lý tài khoản</a>
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-area="Admin" asp-controller="CategoriesAd" asp-action="Index">Quản lý danh mục</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/login.html?returnUrl=/Admin/CategoriesAd" @* asp-area="Admin" asp-controller="AccountsAdmin" asp-action="Index"*@>Quản lý danh mục</a>
+                        </li>
+                    }
+                    
+                  
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-area="Admin" asp-controller="RolesAd" asp-action="Index">Quản lý quyền truy cập</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/login.html?returnUrl=/Admin/RolesAd" @* asp-area="Admin" asp-controller="AccountsAdmin" asp-action="Index"*@>Quản lý quyền truy cập</a>
+                        </li>
+                    }
+                   
+                   
+
+                </ul>
+            </li>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+               <li class="nav-item">
+                    <a class="dropdown-toggle" asp-action="Index" asp-controller="TinDangsAd" asp-area="Admin">
+               <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý tin Blog</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" href="/login.html?returnUrl=/Admin/TinDangsAd">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý tin Blog</span>
+                    </a>
+                </li>
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" asp-action="Index" asp-controller="PagesAd" asp-area="Admin">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý Pages</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" href="/login.html?returnUrl=/Admin/PagesAd">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-file"></i>
+                        </span>
+                        <span class="title">Quản lý Pages</span>
+                    </a>
+                </li>
+            }
+
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" asp-action="Index" asp-controller="SalesStatistics" asp-area="Admin">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-form"></i>
+                        </span>
+                        <span class="title">Doanh số</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="dropdown-toggle" href="/login.html?returnUrl=/Admin/SalesStatistics">
+                        <span class="icon-holder">
+                            <i class="anticon anticon-form"></i>
+                        </span>
+                        <span class="title">Doanh số</span>
+                    </a>
+                </li>
+            }
+          
+         
+        </ul>
+    </div>
+</div>
